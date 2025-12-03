@@ -1,2 +1,3 @@
-source :rubygems
-gem 'rack'
+source 'https://rubygems.org'
+gem 'rack', '~> 3.0'
+gem 'puma'

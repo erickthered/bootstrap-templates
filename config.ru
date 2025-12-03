@@ -1,14 +1,12 @@
-use Rack::Static,
-	:urls => ["/css", "/img", "/js", "/templates"],
-	:root => 'public/'
+require 'rack/static'
 
-run lambda { |env|
-	[
-		200,
-		{
-			'Content-type' => 'text/html',
-			'Cache-Control' => 'public, max-age=86400'
-		},
-		File.open('public/index.html', File::RDONLY)
-	]
+# A fallback app for when a file isn't found
+not_found_app = lambda { |env|
+  [404, { 'Content-Type' => 'text/plain' }, ['Not Found']]
 }
+
+run Rack::Static.new(not_found_app,
+  root: 'public',
+  urls: ['/'],
+  index: 'index.html'
+)

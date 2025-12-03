@@ -10,6 +10,18 @@ Twitter's Bootstrap and these templates are released under the Apapche License V
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-# Check them out
+# Running with Docker
 
-You can check these templates at: [Heroku's Bootstrap 101 Page](http://bootstrap101.heroku.com)
+To run this project using Docker, follow these steps:
+
+1. **Build the Docker image:**
+   ```bash
+   docker build -t bootstrap-templates .
+   ```
+
+2. **Run the Docker container:**
+   ```bash
+   docker run -p 80:9292 bootstrap-templates
+   ```
+
+   This will start the web server, and you can access it in your browser at `http://localhost:80`
